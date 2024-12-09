@@ -9,6 +9,8 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatform";
 import SortSelector, { SortOrder } from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import SidePanel from "./components/SidePanel";
+import { mainColor } from "./main";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -19,9 +21,10 @@ export interface GameQuery {
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const [panelStatus, SetPanelStatus] = useState(false);
 
-  const { width } = useWidth();
-  const lgSize = 1024;
+  const { sidePanel } = useWidth();
+
   return (
     <Grid
       templateAreas={{
@@ -38,7 +41,25 @@ function App() {
           onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
         ></Navbar>
       </GridItem>
-      <Show when={width > lgSize}>
+      <Show when={panelStatus}>
+        <GridItem
+          area={"aside"}
+          position="absolute"
+          zIndex={100}
+          right={1}
+          border={"2px solid " + mainColor}
+          background={{ base: "whiteAlpha.800", _dark: "blackAlpha.800" }}
+          borderRadius={15}
+          marginY="200px"
+          padding={5}
+        >
+          <GenreList
+            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+            selectedGenre={gameQuery.genre}
+          ></GenreList>
+        </GridItem>
+      </Show>
+      <Show when={!sidePanel}>
         <GridItem area={"aside"} paddingX={5}>
           <GenreList
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
@@ -62,6 +83,12 @@ function App() {
               }
               selectedSortOrder={gameQuery.sortOrder}
             ></SortSelector>
+            <Show when={sidePanel}>
+              <SidePanel
+                onPanelClick={() => SetPanelStatus(!panelStatus)}
+                panelStatus={panelStatus}
+              ></SidePanel>
+            </Show>
           </Flex>
         </Box>
         <GameGrid gameQuery={gameQuery}></GameGrid>
