@@ -1,0 +1,57 @@
+:root {
+  --main-color: #eb4034;
+  --hover-color: #87170f;
+  font-family: "Pixelify Sans", serif;
+}
+
+h1 {
+  font-family: "Pixelify Sans", serif;
+}
+
+/* Scrollbar Customization For Suggested Pokemon*/
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: #ffffff00;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-color);
+}
+
+/*                                       */
+
+.platform-content::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+.platform-content::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: #ffffff00;
+}
+/* Handle */
+.platform-content::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 5px;
+}
+/* Handle on hover */
+.platform-content::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: var(--hover-color);
+}
+
+form {
+  width: 100%;
+}
