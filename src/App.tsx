@@ -41,7 +41,7 @@ function App() {
           onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
         ></Navbar>
       </GridItem>
-      <Show when={panelStatus}>
+      <Show when={panelStatus && sidePanel}>
         <GridItem
           area={"aside"}
           position="absolute"
