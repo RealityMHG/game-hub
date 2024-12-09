@@ -54,7 +54,10 @@ function App() {
           padding={5}
         >
           <GenreList
-            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+            onSelectGenre={(genre) => {
+              setGameQuery({ ...gameQuery, genre });
+              SetPanelStatus(!panelStatus);
+            }}
             selectedGenre={gameQuery.genre}
           ></GenreList>
         </GridItem>
