@@ -37,8 +37,7 @@ const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
       <MenuContent
         boxSize="160px"
         position="absolute"
-        marginTop="40px"
-        marginLeft="135px"
+        marginTop="4px"
         borderRadius={5}
       >
         {sortOrders.map((order) => (

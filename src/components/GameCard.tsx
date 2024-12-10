@@ -4,13 +4,18 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 import Emoji from "./Emoji";
+import { Platform } from "../hooks/usePlatform";
 
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
-  const platforms = game.parent_platforms.map((platform) => platform.platform);
+  let platforms: Platform[] = [];
+
+  if (game.parent_platforms) {
+    platforms = game.parent_platforms.map((platform) => platform.platform);
+  }
 
   return (
     <Card.Root>
