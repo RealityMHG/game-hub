@@ -37,8 +37,8 @@ const GameCard = ({ game, gameSelected, onSelectedGame }: Props) => {
       }}
       transition="border 100ms ease-in-out"
       onClick={() => onSelectedGame(game)}
-      background={gameSelected?.id == game.id ? mainColorAlpha : "black"}
-      cursor="pointer"
+      //background={gameSelected?.id == game.id ? mainColorAlpha : "black"}
+      //cursor="pointer"
     >
       {focused ? (
         <ImageSlider images={game.short_screenshots}></ImageSlider>
