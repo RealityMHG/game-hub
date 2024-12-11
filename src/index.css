@@ -63,4 +63,15 @@ form {
   bottom: 75%;
   cursor: pointer;
   color: var(--main-color);
+  background: #ffffff6a;
+}
+
+.image-btn:hover > * {
+  animation: squish 200ms ease-in-out;
+}
+
+@keyframes squish {
+  50% {
+    scale: 1.8 0.3;
+  }
 }

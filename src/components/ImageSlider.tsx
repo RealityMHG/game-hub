@@ -24,7 +24,7 @@ const ImageSlider = ({ images }: Props) => {
       <Box overflow="hidden" width="100%" height="100%" display="flex">
         {images.map((url) => (
           <Image
-            key={url.image}
+            key={url.id}
             src={getCroppedImageUrl(url.image)}
             style={{ translate: `${-100 * imageIndex}%` }}
             transition="translate 0.3s ease-in-out"
