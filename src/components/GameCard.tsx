@@ -11,11 +11,11 @@ import ImageSlider from "./ImageSlider";
 
 interface Props {
   game: Game;
-  gameSelected: Game | null;
-  onSelectedGame: (game: Game | null) => void;
+  //gameSelected: Game | null;
+  //onSelectedGame: (game: Game | null) => void;
 }
 
-const GameCard = ({ game, gameSelected, onSelectedGame }: Props) => {
+const GameCard = ({ game }: Props) => {
   //Can do a lot with this like, website, metascore link, reddit link, stores link...
   //But uses a lot of fetches
   //Could try and use it only when i click on a card
@@ -36,7 +36,7 @@ const GameCard = ({ game, gameSelected, onSelectedGame }: Props) => {
         border: "2px solid " + mainColorAlpha,
       }}
       transition="border 100ms ease-in-out"
-      onClick={() => onSelectedGame(game)}
+      // onClick={() => onSelectedGame(game)}
       //background={gameSelected?.id == game.id ? mainColorAlpha : "black"}
       //cursor="pointer"
     >
