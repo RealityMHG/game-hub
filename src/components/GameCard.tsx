@@ -5,12 +5,16 @@ import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 import Emoji from "./Emoji";
 import { Platform } from "../hooks/usePlatform";
+import { useState } from "react";
+import { mainColorAlpha } from "../main";
+import ImageSlider from "./ImageSlider";
 
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
+  const [focused, setFocused] = useState(false);
   let platforms: Platform[] = [];
 
   if (game.parent_platforms) {
@@ -18,8 +22,20 @@ const GameCard = ({ game }: Props) => {
   }
 
   return (
-    <Card.Root>
-      <Image src={getCroppedImageUrl(game.background_image)}></Image>
+    <Card.Root
+      onMouseEnter={() => setFocused(true)}
+      onMouseLeave={() => setFocused(false)}
+      _hover={{
+        border: "2px solid " + mainColorAlpha,
+      }}
+      transition="border 100ms ease-in-out"
+    >
+      {focused ? (
+        <ImageSlider images={game.short_screenshots}></ImageSlider>
+      ) : (
+        <Image src={getCroppedImageUrl(game.background_image)}></Image>
+      )}
+
       <Card.Body>
         <Card.Description>
           <HStack justifyContent={"space-between"}>

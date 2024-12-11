@@ -1,5 +1,6 @@
 :root {
   --main-color: #eb4034;
+  --main-color-alpha: #eb40348c;
   --hover-color: #87170f;
   font-family: "Pixelify Sans", serif;
 }
@@ -54,4 +55,12 @@ h1 {
 
 form {
   width: 100%;
+}
+.image-btn {
+  padding: 0;
+  position: absolute;
+  top: 25%;
+  bottom: 75%;
+  cursor: pointer;
+  color: var(--main-color);
 }

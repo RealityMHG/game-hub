@@ -52,6 +52,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                     ? "1px solid " + mainColor
                     : "1px"
                 }
+                transition="all 0.2s ease-in-out"
               ></Image>
               <Link
                 onClick={() => onSelectGenre(genre)}
